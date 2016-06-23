@@ -1,0 +1,36 @@
+{
+  "name": "boilermaker",
+  "version": "1.0.0",
+  "description": "A generator for Boiler Room projects",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/everydayhero/boilermaker.git"
+  },
+  "keywords": [
+    "react",
+    "redux",
+    "js",
+    "boiler-room",
+    "static"
+  ],
+  "author": "@howlingeverett",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/everydayhero/boilermaker/issues"
+  },
+  "homepage": "https://github.com/everydayhero/boilermaker#readme",
+  "devDependencies": {
+    "babel-eslint": "^6.0.5",
+    "eslint": "^2.13.1",
+    "eslint-plugin-react": "^5.2.2",
+    "plop": "^1.5.0"
+  },
+  "dependencies": {
+    "commander": "^2.9.0",
+    "lodash": "^4.13.1"
+  }
+}

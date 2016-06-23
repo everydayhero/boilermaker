@@ -1,0 +1,59 @@
+{
+  "name": "{{dashCase name}}",
+  "version": "1.0.0",
+  "description": "{{description}}",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/everydayhero/{{dashCase name}}.git"
+  },
+  "bugs": {
+    "url": "https://github.com/everydayhero/{{dashCase name}}/issues"
+  },
+  "homepage": "https://github.com/everydayhero/{{dashCase name}}#readme",
+  {{#if productionServer}}
+  "dependencies": {
+    "express": "^4.14.0"
+  },
+  {{/if}}
+  "devDependencies": {
+    {{#if useRouter}}
+    "react-router": "^2.4.1"
+    {{/if}}
+    {{#if useRedux}}
+    "redux": "^3.5.2",
+    "react-redux": "^4.4.5"
+    {{/if}}
+    {{#allTrue useRouter useRedux}}
+    "react-router-redux": "^4.0.5"
+    {{/allTrue}}
+    {{#unless productionServer}}
+    "express": "^4.14.0"
+    {{/unless}}
+    "webpack": "2.1.0-beta.13",
+    "webpack-dev-middleware": "^1.6.1",
+    "webpack-hot-middleware": "^2.10.0",
+    "react-hot-loader": "^3.0.0-beta.1",
+    "react": "^15.1.0",
+    "react-dom": "^15.1.0",
+    "enzyme": "^2.3.0",
+    "mocha": "^2.5.0",
+    "chai": "^3.5.0",
+    "chai-enzyme": "^0.5.0",
+    "sinon": "^1.17.4",
+    "sinon-as-promised": "^4.0.0",
+    "bluebird": "^3.4.1"
+  },
+  "scripts": {
+    "build:setup": "rm -rf .dev/* dist/* && mkdir -p dist .dev",
+    "build:prod": "",
+    "build:staging": "",
+    "dev": "",
+    "lint": "eslint",
+    "test": "",
+    "deploy:staging"
+  },
+  "engine": {
+    "node": "{{nodeVersion}}"
+  },
+  "main": "{{entryPoint}}"
+}
