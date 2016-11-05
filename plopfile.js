@@ -19,17 +19,13 @@ module.exports = plop => {
     prompts: [],
 		actions: data => {
       let actions = renderTemplateActions(
-        'docker-compose.ci.yml',
-        'docker-compose.yml',
-        'Dockerfile',
-        'webpack.config.js',
-        '.babelrc',
-        '.eslintrc',
+        'source/components/Button/index.js',
+        'source/layouts/Page/index.js',
+        'source/lib/traits/index.js',
+        'source/client.js',
+        'source/server.js',
         '.gitignore',
-        '.dockerignore',
-        'package.json',
-        'index.js',
-        'README.md'
+        'package.json'
       )
       return actions
     }
@@ -38,8 +34,6 @@ module.exports = plop => {
 
 const renderTemplateActions = (...templateFiles) => {
   return templateFiles.map(templateFile => {
-    console.log(templateFile)
-		console.log(path.dirname(templateFile))
 		return {
       type: 'add',
       path: path.join(cwd + '/', templateFile),
@@ -48,4 +42,3 @@ const renderTemplateActions = (...templateFiles) => {
     }
   })
 }
-
