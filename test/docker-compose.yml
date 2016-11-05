@@ -1,0 +1,18 @@
+version: '2'
+services:
+  web:
+    build: .
+    environment:
+      - BUILDKITE_AGENT_ACCESS_TOKEN
+      - BUILDKITE_JOB_ID
+      - BUILDKITE_BUILD_ID
+      - BUILDKITE_BUILD_NUMBER
+      - GITHUB_RELEASE_ACCESS_TOKEN
+      - DOCKER_HUB_TRIGGER_TOKEN
+      - NODE_ENV=development
+    working_dir: /code
+    volumes:
+      - .:/code
+    ports:
+      - "3000:3000"
+    command: ["dumb-init", "npm", "start"]

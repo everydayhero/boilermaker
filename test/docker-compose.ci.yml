@@ -1,0 +1,19 @@
+version: '2'
+services:
+  web:
+    image: "${DOCKER_REPOSITORY}:${COMMIT}"
+    environment:
+        - BUILDKITE_AGENT_ACCESS_TOKEN
+        - BUILDKITE_JOB_ID
+        - BUILDKITE_BUILD_ID
+        - BUILDKITE_BUILD_NUMBER
+        - GITHUB_RELEASE_ACCESS_TOKEN
+        - DOCKER_HUB_TRIGGER_TOKEN
+    working_dir: /code
+    volumes:
+      - .:/code
+    command: >
+      sh -c '
+      npm install && 
+       /usr/local/bin/node ./index.js
+      '
