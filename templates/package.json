@@ -1,20 +1,26 @@
 {
-  "name": "boilermaker-app",
+  "name": "{{name}}",
   "version": "1.0.0",
-  "description": "",
+  "description": "{{description}}",
   "main": "index.js",
   "scripts": {
     "start": "brb serve",
     "build": "brb build",
+    "lint": "standard",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "everydayhero",
   "license": "ISC",
   "dependencies": {
-    "boiler-room-builder": "^1.0.0-19",
-    "cxsync": "1.0.2",
+    "boiler-room-builder": "^1.0.0-20",
+    "boiler-room-runner": "^1.0.0-17",
+    "cxsync": "1.0.9",
     "minimal.css": "^1.0.0",
     "react": "^0.14.8",
     "react-dom": "^0.14.8"
+  },
+  "devDependencies": {
+    "gh-pages": "^0.11.0",
+    "standard": "^8.5.0"
   }
 }

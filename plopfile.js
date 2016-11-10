@@ -1,23 +1,27 @@
 'use strict'
 
 const path = require('path')
-const _ = require('lodash')
 const cwd = process.cwd()
 
 module.exports = plop => {
-
-  plop.addHelper('allTrue', function(...args) {
-    const opts = args.pop()
-    if (_.every(args), Boolean) {
-      return opts.fn(this)
-    }
-    return opts.inverse(this)
-  })
-
   plop.setGenerator('project', {
     description: 'Create a new boiler room project',
-    prompts: [],
-		actions: data => {
+    prompts: [{
+      type: 'input',
+      name: 'name',
+      message: 'What is your project called?',
+      validate: value => {
+        if (value && value.trim()) {
+          return true
+        }
+        return 'Project name is required.'
+      }
+    }, {
+      type: 'input',
+      name: 'description',
+      message: 'Enter a short project description (optional):'
+    }],
+    actions: data => {
       let actions = renderTemplateActions(
         'source/components/Button/index.js',
         'source/layouts/Page/index.js',
@@ -34,9 +38,9 @@ module.exports = plop => {
 
 const renderTemplateActions = (...templateFiles) => {
   return templateFiles.map(templateFile => {
-		return {
+    return {
       type: 'add',
-      path: path.join(cwd + '/', templateFile),
+      path: path.join(`${cwd}/`, templateFile),
       templateFile: path.join('templates', templateFile),
       abortOnFail: true
     }
