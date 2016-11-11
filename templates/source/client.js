@@ -4,6 +4,7 @@ import { createClient } from 'boiler-room-runner'
 import { render } from 'react-dom'
 import { configureStore } from './store'
 import createLocals from './lib/createLocals'
+import 'minimal.css'
 
 {{#if fetching}}
 if (typeof Promise === 'undefined') {
