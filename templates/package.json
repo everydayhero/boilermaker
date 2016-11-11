@@ -12,6 +12,10 @@
   "author": "everydayhero",
   "license": "ISC",
   "dependencies": {
+    {{#if fetching}}
+    "axios": "^0.15.2",
+    "es6-promise": "^4.0.5",
+    {{/if}}
     {{#if prismic}}
     "prismic-utils": "^1.1.0",
     "prismic.io": "^3.2.0",

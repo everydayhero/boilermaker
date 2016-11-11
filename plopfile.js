@@ -25,6 +25,11 @@ module.exports = plop => {
       name: 'prismic',
       message: 'Will this project use Prismic for a CMS?',
       default: false
+    }, {
+      type: 'confirm',
+      name: 'fetching',
+      message: 'Need a data fetching setup (Axios & ES6 Polyfill)?',
+      default: false
     }],
     actions: data => {
       let actions = renderTemplateActions(
