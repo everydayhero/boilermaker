@@ -2,7 +2,7 @@
   "name": "{{name}}",
   "version": "0.1.0",
   "description": "{{description}}",
-  "main": "index.js",
+  "main": "source/client.js",
   "scripts": {
     "start": "brb serve",
     "build": "brb build",
