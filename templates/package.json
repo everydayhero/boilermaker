@@ -7,7 +7,7 @@
     "start": "brb serve",
     "build": "brb build",
     "lint": "standard",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "yarn run lint"
   },
   "author": "everydayhero",
   "license": "ISC",
@@ -29,6 +29,7 @@
   },
   "devDependencies": {
     "gh-pages": "^0.11.0",
-    "standard": "^8.5.0"
+    "standard": "^8.5.0",
+    "yarn": "^0.16.1"
   }
 }
