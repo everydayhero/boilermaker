@@ -11,16 +11,11 @@ export const transitions = {
 }
 
 export const fonts = {
-  head: '"VAG Rounded W01 Bold", Lato, Helvetica, Arial',
-  body: 'Avenir, Lato, Helvetica, Arial'
+  heading: 'serif',
+  body: 'sans-serif'
 }
 
 export const colors = {
-  light: '#fff',
-  dark: '#333',
-  green: '#40ae49',
-  pink: '#e2499a',
-  blue: '#0090ba',
-  orange: '#e24a26',
-  purple: '#ac4399'
+  light: '#FFF',
+  dark: '#000'
 }

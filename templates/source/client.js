@@ -1,7 +1,9 @@
 import React from 'react'
+import routes from './routes'
+import { createClient } from 'boiler-room-runner'
 import { render } from 'react-dom'
-import 'minimal.css'
-import Page from './layouts/Page'
+import { configureStore } from './store'
+import createLocals from './lib/createLocals'
 
 {{#if fetching}}
 if (typeof Promise === 'undefined') {
@@ -9,4 +11,9 @@ if (typeof Promise === 'undefined') {
 }
 
 {{/if}}
-render(<Page />, document.getElementById('mount'))
+const basepath = process.env.BASE_PATH
+const initialState = JSON.parse(document.getElementById('initial-state').innerHTML)
+const store = configureStore(initialState)
+const App = createClient({ basepath, routes, store, createLocals })
+
+render(<App />, document.getElementById('mount'))

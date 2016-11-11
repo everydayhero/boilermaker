@@ -23,9 +23,16 @@
     "boiler-room-builder": "^1.0.0",
     "boiler-room-runner": "^1.0.0",
     "cxsync": "1.0.9",
+		"inline-style-prefixer": "^2.0.4",
+    "lodash.merge": "^4.6.0",
     "minimal.css": "^1.0.0",
     "react": "^0.14.8",
-    "react-dom": "^0.14.8"
+    "react-dom": "^0.14.8",
+    "react-helmet": "^3.2.2",
+    "react-router-redux": "^4.0.7",
+    "redux-logger": "^2.7.4",
+    "redux-thunk": "^2.1.0"
+
   },
   "devDependencies": {
     "gh-pages": "^0.11.0",

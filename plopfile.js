@@ -33,13 +33,23 @@ module.exports = plop => {
     }],
     actions: data => {
       let actions = renderTemplateActions(
+        '.gitignore',
+        'package.json',
         'source/components/Button/index.js',
-        'source/layouts/Page/index.js',
+        'source/components/Document/index.js',
+        'source/lib/createLocals/index.js',
+        'source/lib/css/index.js',
+        'source/lib/renderDocument/index.js',
         'source/lib/traits/index.js',
+        'source/lib/unlessFetched/index.js',
+        'source/routes/Home/index.js',
+        'source/routes/index.js',
         'source/client.js',
         'source/server.js',
-        '.gitignore',
-        'package.json'
+        'source/store/actions/.gitkeep',
+        'source/store/index.js',
+        'source/store/reducers/index.js',
+        'webpack.shared.config.js'
       )
       return actions
     }
