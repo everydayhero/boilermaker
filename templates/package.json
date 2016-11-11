@@ -20,8 +20,8 @@
     "prismic-utils": "^1.1.0",
     "prismic.io": "^3.2.0",
     {{/if}}
-    "boiler-room-builder": "^1.0.0-20",
-    "boiler-room-runner": "^1.0.0-17",
+    "boiler-room-builder": "^1.0.0",
+    "boiler-room-runner": "^1.0.0",
     "cxsync": "1.0.9",
     "minimal.css": "^1.0.0",
     "react": "^0.14.8",
