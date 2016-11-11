@@ -20,6 +20,11 @@ module.exports = plop => {
       type: 'input',
       name: 'description',
       message: 'Enter a short project description (optional):'
+    }, {
+      type: 'confirm',
+      name: 'prismic',
+      message: 'Will this project use Prismic for a CMS?',
+      default: false
     }],
     actions: data => {
       let actions = renderTemplateActions(
