@@ -5,7 +5,7 @@ const webpack = require('webpack')
 
 module.exports = {
   entry: [
-    'webpack-dev-server/client?http://localhost:{{port}}',
+    'webpack-dev-server/client?http://localhost:',
     'webpack/hot/only-dev-server',
     'react-hot-loader/patch',
     './index'

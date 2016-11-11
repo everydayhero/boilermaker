@@ -13,6 +13,6 @@ COPY . $HOME
 RUN npm run build
 
 ENV NODE_ENV=production
-ENV PORT={{port}}
+ENV PORT=
 
-EXPOSE {{port}}
+EXPOSE 

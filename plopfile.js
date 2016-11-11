@@ -1,18 +1,9 @@
 'use strict'
 
 const path = require('path')
-const _ = require('lodash')
+const cwd = process.cwd()
 
 module.exports = plop => {
-
-  plop.addHelper('allTrue', function(...args) {
-    const opts = args.pop()
-    if (_.every(args), Boolean) {
-      return opts.fn(this)
-    }
-    return opts.inverse(this)
-  })
-
   plop.setGenerator('project', {
     description: 'Create a new boiler room project',
     prompts: [{
@@ -25,74 +16,53 @@ module.exports = plop => {
         }
         return 'Project name is required.'
       }
-    },
-    {
+    }, {
       type: 'input',
       name: 'description',
       message: 'Enter a short project description (optional):'
-    },
-    {
-      type: 'input',
-      name: 'port',
-      message: 'What port should your Development server run on?',
-      default: 3000
-    },
-    {
+    }, {
       type: 'confirm',
-      name: 'useRedux',
-      message: 'Do you need Redux for state management?',
+      name: 'prismic',
+      message: 'Will this project use Prismic for a CMS?',
       default: false
-    },
-    {
+    }, {
       type: 'confirm',
-      name: 'useRouter',
-      message: 'Does your app need routing (e.g. React Router)?',
-      default: false
-    },
-    {
-      type: 'confirm',
-      name: 'productionServer',
-      message: 'Will your app run its own production server?',
+      name: 'fetching',
+      message: 'Need a data fetching setup (Axios & ES6 Polyfill)?',
       default: false
     }],
     actions: data => {
       let actions = renderTemplateActions(
-        'docker-compose.ci.yml',
-        'docker-compose.yml',
-        'Dockerfile',
-        'webpack.config.js',
-        '.babelrc',
-        '.eslintrc',
         '.gitignore',
-        '.dockerignore',
         'package.json',
-        'index.js',
-        'README.md'
+        'source/components/Button/index.js',
+        'source/components/Document/index.js',
+        'source/lib/createLocals/index.js',
+        'source/lib/css/index.js',
+        'source/lib/renderDocument/index.js',
+        'source/lib/traits/index.js',
+        'source/lib/unlessFetched/index.js',
+        'source/routes/Home/index.js',
+        'source/routes/index.js',
+        'source/client.js',
+        'source/server.js',
+        'source/store/actions/.gitkeep',
+        'source/store/index.js',
+        'source/store/reducers/index.js',
+        'webpack.shared.config.js'
       )
-
-      if (data.useRedux) {
-
-      }
-
-      if (data.useRouter) {
-
-      }
-
       return actions
     }
   })
-
-  plop.setGenerator('')
 }
 
 const renderTemplateActions = (...templateFiles) => {
   return templateFiles.map(templateFile => {
     return {
       type: 'add',
-      path: path.join('./', path.dirname(templateFile)),
+      path: path.join(`${cwd}/`, templateFile),
       templateFile: path.join('templates', templateFile),
       abortOnFail: true
     }
   })
 }
-

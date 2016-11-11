@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "A generator for Boiler Room projects",
   "main": "index.js",
+  "bin" : {
+    "boilermaker": "./bin/boilermaker.js"
+  },
   "scripts": {
     "test": "mocha"
   },
