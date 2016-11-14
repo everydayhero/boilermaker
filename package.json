@@ -1,10 +1,10 @@
 {
-  "name": "boilermaker",
+  "name": "brm",
   "version": "1.0.0",
   "description": "A generator for Boiler Room projects",
   "main": "index.js",
   "bin" : {
-    "boilermaker": "./bin/boilermaker.js"
+    "brm": "./bin/brm.js"
   },
   "scripts": {
     "test": "mocha"
