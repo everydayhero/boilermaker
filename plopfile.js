@@ -33,7 +33,6 @@ module.exports = plop => {
     }],
     actions: data => {
       let actions = renderTemplateActions(
-        '.gitignore',
         'package.json',
         'source/components/Button/index.js',
         'source/components/Document/index.js',
@@ -51,6 +50,14 @@ module.exports = plop => {
         'source/store/reducers/index.js',
         'webpack.shared.config.js'
       )
+
+      actions.push({
+        type: 'add',
+        path: path.join(`${cwd}/`, '.gitignore'),
+        templateFile: path.join('templates', 'gitignore'),
+        abortOnFail: true
+      })
+
       return actions
     }
   })

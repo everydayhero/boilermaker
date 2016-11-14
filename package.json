@@ -20,9 +20,6 @@
     "boiler-room",
     "static"
   ],
-  "files": [
-    "templates/.gitignore"
-  ],
   "author": "@howlingeverett",
   "license": "MIT",
   "bugs": {
