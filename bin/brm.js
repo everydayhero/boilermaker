@@ -8,7 +8,7 @@ const plopfile = join(__dirname, '../plopfile.js')
 
 if (script === 'create') {
   const proc = spawn(
-    'plop',
+    join(__dirname, '../node_modules/.bin/plop'),
     [ '--plopfile=' + plopfile ],
     { stdio: 'inherit' }
   )
