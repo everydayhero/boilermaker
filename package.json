@@ -7,7 +7,9 @@
     "brm": "./bin/brm.js"
   },
   "scripts": {
-    "test": "mocha"
+    "build": "babel src -d dist",
+    "test": "mocha",
+    "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -20,6 +22,11 @@
     "boiler-room",
     "static"
   ],
+  "files": [
+    "templates",
+    "bin",
+    "dist"
+  ],
   "author": "@howlingeverett",
   "license": "MIT",
   "bugs": {
@@ -27,7 +34,10 @@
   },
   "homepage": "https://github.com/everydayhero/boilermaker#readme",
   "devDependencies": {
+    "babel-cli": "^6.18.0",
     "babel-eslint": "^6.0.5",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-stage-0": "^6.16.0",
     "eslint": "^2.13.1",
     "eslint-plugin-react": "^5.2.2"
   },
