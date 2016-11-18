@@ -7,16 +7,12 @@ import React from 'react'
 const t = translate.bind(null, i18n, 'au'){{/if}}
 
 export default ({
-  {{#if i18n}}
-  title = t('title'),
-  {{else}}
   title,
-  {{/if}}
   onClick = () => {},
   children
 }) => (
   <div{{#if styles}} className={css(styles.wrapper)}{{/if}} onClick={onClick}>
-    <h1{{#if styles}} className={css(styles.title)}{{/if}}>{title}</h1>
+    <h1{{#if styles}} className={css(styles.title)}{{/if}}>{title{{#if i18n}} || t('title'){{/if}}}</h1>
     {children}
   </div>
 )
