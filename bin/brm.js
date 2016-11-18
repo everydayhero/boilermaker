@@ -4,7 +4,7 @@ const { spawn } = require('child_process')
 const { join } = require('path')
 
 const script = process.argv[2]
-const plopfile = join(__dirname, '../plopfile.js')
+const plopfile = join(__dirname, '../dist/plopfile.js')
 
 if (script === 'create') {
   const proc = spawn(

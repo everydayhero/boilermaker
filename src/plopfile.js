@@ -1,7 +1,7 @@
-'use strict'
+import path from 'path'
 
-const path = require('path')
 const cwd = process.cwd()
+const templatesDir = '../templates'
 
 module.exports = plop => {
   plop.setGenerator('project', {
@@ -54,7 +54,7 @@ module.exports = plop => {
       actions.push({
         type: 'add',
         path: path.join(`${cwd}/`, '.gitignore'),
-        templateFile: path.join('templates', 'gitignore'),
+        templateFile: path.join(templatesDir, 'gitignore'),
         abortOnFail: true
       })
 
@@ -63,13 +63,11 @@ module.exports = plop => {
   })
 }
 
-const renderTemplateActions = (...templateFiles) => {
-  return templateFiles.map(templateFile => {
-    return {
-      type: 'add',
-      path: path.join(`${cwd}/`, templateFile),
-      templateFile: path.join('templates', templateFile),
-      abortOnFail: true
-    }
-  })
-}
+const renderTemplateActions = (...templateFiles) => (
+  templateFiles.map(templateFile => ({
+    type: 'add',
+    path: path.join(`${cwd}/`, templateFile),
+    templateFile: path.join(templatesDir, templateFile),
+    abortOnFail: true
+  }))
+)
