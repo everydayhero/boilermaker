@@ -3,6 +3,15 @@ import path from 'path'
 const cwd = process.cwd()
 const templatesDir = '../templates'
 
+export const renderTemplateActions = (data, templateFiles) => (
+  templateFiles.map(templateFile => ({
+    type: 'add',
+    path: path.join(`${cwd}/`, templateFile),
+    templateFile: path.join(templatesDir, templateFile[0] === '.' ? templateFile.substr(1) : templateFile),
+    abortOnFail: true
+  }))
+)
+
 export default plop => {
   plop.setGenerator('project', {
     description: 'Create a new boiler room project',
@@ -31,8 +40,8 @@ export default plop => {
       message: 'Need a data fetching setup (Axios & ES6 Polyfill)?',
       default: false
     }],
-    actions: data => {
-      let actions = renderTemplateActions(
+    actions: data => (
+      renderTemplateActions(data, [
         'package.json',
         'source/components/Button/index.js',
         'source/components/Document/index.js',
@@ -48,26 +57,9 @@ export default plop => {
         'source/store/actions/.gitkeep',
         'source/store/index.js',
         'source/store/reducers/index.js',
-        'webpack.shared.config.js'
-      )
-
-      actions.push({
-        type: 'add',
-        path: path.join(`${cwd}/`, '.gitignore'),
-        templateFile: path.join(templatesDir, 'gitignore'),
-        abortOnFail: true
-      })
-
-      return actions
-    }
+        'webpack.shared.config.js',
+        '.gitignore'
+      ])
+    )
   })
 }
-
-const renderTemplateActions = (...templateFiles) => (
-  templateFiles.map(templateFile => ({
-    type: 'add',
-    path: path.join(`${cwd}/`, templateFile),
-    templateFile: path.join(templatesDir, templateFile),
-    abortOnFail: true
-  }))
-)
