@@ -12,7 +12,11 @@ export default ({
   children
 }) => (
   <div{{#if styles}} className={css(styles.wrapper)}{{/if}} onClick={onClick}>
-    <h1{{#if styles}} className={css(styles.title)}{{/if}}>{title{{#if i18n}} || t('title'){{/if}}}</h1>
+    {{#if i18n}}
+    <h1{{#if styles}} className={css(styles.title)}{{/if}}>{title || t('title')}</h1>
+    {{else}}
+    <h1{{#if styles}} className={css(styles.title)}{{/if}}>{title}</h1>
+    {{/if}}
     {children}
   </div>
 )
