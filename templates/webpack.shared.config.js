@@ -1,5 +1,5 @@
 const { DefinePlugin } = require('webpack')
-const DotenvPlugin = require('webpack-dotenv-plugin')
+const DotenvPlugin = require('dotenv-webpack')
 
 module.exports = {
   plugins: [
@@ -7,8 +7,7 @@ module.exports = {
       'process.env.BASE_PATH': `'${process.env.BASE_PATH || ''}'`
     }),
     new DotenvPlugin({
-      sample: './.env.sample',
-      path: `./${process.env.ENV_FILE}`
+      path: `./${process.env.ENV_FILE || '.env.default'}`
     })
   ]
 }
