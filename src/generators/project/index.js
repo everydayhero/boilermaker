@@ -58,6 +58,7 @@ export default plop => {
         'source/store/index.js',
         'source/store/reducers/index.js',
         'webpack.shared.config.js',
+        '.env.default',
         '.gitignore'
       ])
     )
