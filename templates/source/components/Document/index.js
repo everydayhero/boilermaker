@@ -23,7 +23,7 @@ export default ({
       {head.title.toComponent()}
       {head.meta.toComponent()}
       {renderStyles(styles)}
-      <style>{cxsync.css || ''}</style>
+      <style dangerouslySetInnerHTML={{ __html: cxsync.css || '' }} />
       <script dangerouslySetInnerHTML=\{{
         __html: `
           (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
