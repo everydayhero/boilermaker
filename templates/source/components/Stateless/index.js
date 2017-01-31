@@ -14,7 +14,7 @@ import i18n from './i18n'
 const t = translate.bind(null, i18n, 'au')
 {{/if}}
 
-export default ({
+const {{name}} = ({
   title,
   onClick = () => {},
   children
@@ -28,3 +28,5 @@ export default ({
     {children}
   </div>
 )
+
+export default {{name}}
