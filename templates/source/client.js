@@ -6,12 +6,10 @@ import { configureStore } from './store'
 import createLocals from './lib/createLocals'
 import 'minimal.css'
 
-{{#if fetching}}
 if (typeof Promise === 'undefined') {
   require('es6-promise').polyfill()
 }
 
-{{/if}}
 const basepath = process.env.BASE_PATH
 const initialState = JSON.parse(document.getElementById('initial-state').innerHTML)
 const store = configureStore(initialState)
