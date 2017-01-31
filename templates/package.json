@@ -9,7 +9,7 @@
     "lint": "standard"
   },
   "author": "everydayhero",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     {{#if fetching}}
     "axios": "^0.15.2",
