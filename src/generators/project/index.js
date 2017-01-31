@@ -37,7 +37,7 @@ export default plop => {
     }, {
       type: 'confirm',
       name: 'fetching',
-      message: 'Need a data fetching setup (Axios & ES6 Polyfill)?',
+      message: 'Need a data fetching setup (Axios)?',
       default: false
     }, {
       type: 'confirm',
