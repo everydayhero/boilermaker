@@ -31,13 +31,18 @@ export default plop => (
       name: 'i18n',
       message: 'Will your component require translations?',
       default: false
+    }, {
+      type: 'confirm',
+      name: 'testing',
+      message: 'Will your component have tests?',
+      default: false
     }],
     actions: data => (
       renderTemplateActions(data, [
         'index.js',
         data.styles && 'styles.js',
         data.i18n && 'i18n.js',
-        `__tests__/${NAMESPACE}-test.js`
+        data.testing && `__tests__/${NAMESPACE}-test.js`
       ])
     )
   })

@@ -1,10 +1,18 @@
 import React from 'react'
-{{#if styles}}import css from 'cxsync'{{/if}}
-{{#if i18n}}import {translate} from 'hero-ui/lib/i18n'{{/if}}
-{{#if styles}}import * as styles from './styles'{{/if}}
-{{#if i18n}}import i18n from './i18n'
+{{#if styles}}
+import css from 'cxsync'
+{{/if}}
+{{#if i18n}}
+import {translate} from 'hero-ui/lib/i18n'
+{{/if}}
+{{#if styles}}
+import * as styles from './styles'
+{{/if}}
+{{#if i18n}}
+import i18n from './i18n'
 
-const t = translate.bind(null, i18n, 'au'){{/if}}
+const t = translate.bind(null, i18n, 'au')
+{{/if}}
 
 export default ({
   title,
