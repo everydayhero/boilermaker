@@ -39,6 +39,11 @@ export default plop => {
       name: 'fetching',
       message: 'Need a data fetching setup (Axios & ES6 Polyfill)?',
       default: false
+    }, {
+      type: 'confirm',
+      name: 'hui',
+      message: 'Do you use HUI?',
+      default: false
     }],
     actions: data => (
       renderTemplateActions(data, [

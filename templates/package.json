@@ -23,7 +23,9 @@
     "boiler-room-runner": "^1.0.0",
     "cxsync": "^1.0.9",
     "dotenv-webpack": "^1.3.1",
+    {{#if hui}}
     "hero-ui": "^5.3.3",
+    {{/if}}
     "inline-style-prefixer": "^2.0.4",
     "lodash.merge": "^4.6.0",
     "minimal.css": "^1.0.0",
