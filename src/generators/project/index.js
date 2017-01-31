@@ -41,6 +41,11 @@ export default plop => {
       default: false
     }, {
       type: 'confirm',
+      name: 'constructicon',
+      message: 'Do you use Constructicon?',
+      default: false
+    }, {
+      type: 'confirm',
       name: 'hui',
       message: 'Do you use HUI?',
       default: false
@@ -53,7 +58,6 @@ export default plop => {
     actions: data => (
       renderTemplateActions(data, [
         'package.json',
-        'source/components/Button/index.js',
         'source/components/Document/index.js',
         'source/lib/createLocals/index.js',
         'source/lib/css/index.js',
