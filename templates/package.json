@@ -6,8 +6,7 @@
   "scripts": {
     "start": "brb serve --config='./webpack.shared.config'",
     "build": "brb build --config='./webpack.shared.config'",
-    "lint": "standard",
-    "test": "yarn run lint"
+    "lint": "standard"
   },
   "author": "everydayhero",
   "license": "ISC",
@@ -37,10 +36,12 @@
     "redux-thunk": "^2.1.0"
   },
   "devDependencies": {
+    "gh-pages": "^0.11.0",
+    {{#if testing}}
     "chai": "^3.0.0",
     "enzyme": "^2.4.1",
-    "gh-pages": "^0.11.0",
     "sinon": "^1.15.4",
+    {{/if}}
     "standard": "^8.5.0"
   }
 }

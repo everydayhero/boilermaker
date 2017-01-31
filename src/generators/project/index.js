@@ -44,6 +44,11 @@ export default plop => {
       name: 'hui',
       message: 'Do you use HUI?',
       default: false
+    }, {
+      type: 'confirm',
+      name: 'testing',
+      message: 'Will you be writing tests in this project?',
+      default: false
     }],
     actions: data => (
       renderTemplateActions(data, [
