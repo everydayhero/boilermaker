@@ -1,5 +1,6 @@
-import fs from 'fs-promise'
 import camelCase from 'lodash/camelcase'
+import fs from 'fs-promise'
+import path from 'path'
 
 const NAMESPACE = 'Action & Reducer'
 const cwd = process.cwd()
@@ -14,12 +15,26 @@ export default plop => (
       validate: v => !!(v && v.trim()) || 'Component name is required.'
     }, {
       type: 'directory',
-      name: 'path',
+      name: 'directory',
       message: 'Where do you want the Action & Reducer code?',
       basePath: cwd
     }],
     actions: data => ([
       (answers) => {
+        const dir = `${answers.directory}/store`
+
+        if (!fs.existsSync(dir)) {
+          fs.mkdirSync(dir)
+          return 'Directory created'
+        } else {
+          return 'Directory exists'
+        }
+      }, {
+        type: 'add',
+        path: path.join(cwd, '{{directory}}/store/index.js'),
+        templateFile: '../templates/source/store/ActionReducer/index.js',
+        abortOnFail: true
+      }, (answers) => {
         const storePath = 'source/store/index.js'
 
         const addText = (data) => {
@@ -47,6 +62,11 @@ export default plop => (
         return fs.readFile(storePath)
           .then(addText)
           .catch(() => ('No file found at store/index.js. Skipping reducer combining.'))
+      }, {
+        type: 'modify',
+        path: path.join(cwd, 'source/store/index.js'),
+        pattern: /(\/\/ @reducers)/g,
+        template: '$1\nimport {{camelCase name}} from \'../../{{directory}}/store\''
       }
     ])
   })
