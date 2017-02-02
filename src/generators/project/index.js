@@ -68,9 +68,7 @@ export default plop => {
         'source/routes/index.js',
         'source/client.js',
         'source/server.js',
-        'source/store/actions/.gitkeep',
         'source/store/index.js',
-        'source/store/reducers/index.js',
         'webpack.shared.config.js',
         '.env.default',
         '.gitignore'
