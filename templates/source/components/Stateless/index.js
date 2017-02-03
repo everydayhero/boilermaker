@@ -14,7 +14,7 @@ import i18n from './i18n'
 const t = translate.bind(null, i18n, 'au')
 {{/if}}
 
-const {{name}} = ({
+const {{pascalCase name}} = ({
   title,
   onClick = () => {},
   children
@@ -29,4 +29,4 @@ const {{name}} = ({
   </div>
 )
 
-export default {{name}}
+export default {{pascalCase name}}

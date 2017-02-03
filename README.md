@@ -21,23 +21,17 @@ yarn global add brm
 
 ## Usage
 
-Everything begins with `brm create`.
+Everything begins with running `brm create` from the root directory of your project.
 
 ### Project
-
-Run this from your project's root directory.
 
 This will take you through a sequence of questions for customising your project, and then build out a project based on your answers. Install your dependencies, run `yarn start`, and you're set.
 
 ### Stateless Component
 
-Run this from the directory you'd like the component folder to be created in.
-
 After answering the questions a component will be created, along with any necessary extra files, based on your answers.
 
 ### Action & Reducer
-
-Run this from your project's root directory.
 
 After answering the questions a `store` directory will be created where you selected, containing the Redux action and reducer. If a `source/store/index.js` file is found, it will be modified to include the new reducer.
 
