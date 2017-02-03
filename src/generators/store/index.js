@@ -1,6 +1,6 @@
-import camelCase from 'lodash/camelcase'
 import fs from 'fs-promise'
 import path from 'path'
+import changeCase from 'change-case'
 
 const NAMESPACE = 'Action & Reducer'
 const cwd = process.cwd()
@@ -45,7 +45,7 @@ export default plop => (
 
           const items = re[2]
             .split(',').concat([
-              camelCase(answers.name)
+              changeCase.camelCase(answers.name)
             ]).filter(t => t.trim())
               .map((t) => (`${indent}  ${t
               .replace(lineBreaks, '')
