@@ -1,4 +1,5 @@
 import path from 'path'
+import changeCase from 'change-case'
 
 const NAMESPACE = 'Stateless'
 const cwd = process.cwd()
@@ -7,7 +8,7 @@ const templatesDir = `../templates/source/components/${NAMESPACE}`
 const renderTemplateActions = (data, templateFiles) => (
   templateFiles.map(templateFile => (templateFile && {
     type: 'add',
-    path: path.join(`${cwd}/${data.name}`, templateFile.replace(NAMESPACE, data.name)),
+    path: `${cwd}/{{directory}}/{{pascalCase name}}/${templateFile.replace(NAMESPACE, changeCase.camelCase(data.name))}`,
     templateFile: path.join(templatesDir, templateFile[0] === '.' ? templateFile.substr(1) : templateFile),
     abortOnFail: true
   })).filter(x => x)
@@ -21,6 +22,11 @@ export default plop => (
       name: 'name',
       message: 'What is your component named?',
       validate: v => !!(v && v.trim()) || 'Component name is required.'
+    }, {
+      type: 'directory',
+      name: 'directory',
+      message: 'Where do you want the component to live?',
+      basePath: cwd
     }, {
       type: 'confirm',
       name: 'styles',
