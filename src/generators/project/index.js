@@ -58,6 +58,7 @@ export default plop => {
     actions: data => (
       renderTemplateActions(data, [
         'package.json',
+        'README.md',
         'source/components/Document/index.js',
         'source/lib/createLocals/index.js',
         'source/lib/css/index.js',
