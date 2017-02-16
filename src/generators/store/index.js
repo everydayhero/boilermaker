@@ -39,6 +39,8 @@ export default plop => (
 
         const addText = (data) => {
           const text = data.toString()
+            .replace(/^.*blank:.*$/mg, '') // Remove blank reducer
+
           const re = /(\s*?)combineReducers\(\{\n((?:.|\n)+?)(?=\}\))/g.exec(text)
           const lineBreaks = /(\r\n|\n|\r)/gm
           const indent = re[1].replace(lineBreaks, '')
