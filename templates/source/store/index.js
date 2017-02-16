@@ -15,6 +15,7 @@ const middleware = process.env.NODE_ENV === 'production'
 export const configureStore = (initialState = {}) => (
   createStore(
     combineReducers({
+      blank: (state = {}) => state // Remove this if you have your own reducers
     }),
     initialState,
     applyMiddleware(...middleware)
