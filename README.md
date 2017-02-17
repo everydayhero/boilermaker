@@ -27,6 +27,10 @@ Everything begins with running `brm create` from the root directory of your proj
 
 This will take you through a sequence of questions for customising your project, and then build out a project based on your answers. Install your dependencies, run `yarn start`, and you're set.
 
+#### Repo Creation
+
+When creating a project, Boilermaker will offer to create a repository for you as well. In order to do this, a [GitHub Personal Access Token](https://github.com/settings/tokens/new) is required, with the `repo` scope enabled.
+
 ### Stateless Component
 
 After answering the questions a component will be created, along with any necessary extra files, based on your answers.
