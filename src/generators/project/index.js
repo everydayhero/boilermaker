@@ -1,4 +1,5 @@
 import path from 'path'
+import createGitHubRepo from '../../lib/github'
 
 const cwd = process.cwd()
 const templatesDir = '../templates'
@@ -54,9 +55,20 @@ export default plop => {
       name: 'testing',
       message: 'Will you be writing tests in this project?',
       default: false
+    }, {
+      type: 'confirm',
+      name: 'repo',
+      message: 'Need a repo made?'
+    }, {
+      when: (answers) => answers.repo,
+      type: 'confirm',
+      name: 'repoPublic',
+      message: 'Should this repo be public (MIT licensed if so)?',
+      default: false
     }],
-    actions: data => (
-      renderTemplateActions(data, [
+    actions: data => ([
+      data.repo && (() => createGitHubRepo(data)),
+      ...renderTemplateActions(data, [
         'package.json',
         'README.md',
         'source/components/Document/index.js',
@@ -74,6 +86,6 @@ export default plop => {
         '.env.default',
         '.gitignore'
       ])
-    )
+    ].filter(a => a))
   })
 }

@@ -9,7 +9,9 @@
     "lint": "standard"
   },
   "author": "everydayhero",
+  {{#if repoPublic}}
   "license": "MIT",
+  {{/if}}
   "dependencies": {
     {{#if fetching}}
     "axios": "^0.15.2",

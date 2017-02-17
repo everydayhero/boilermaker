@@ -46,6 +46,7 @@
   "dependencies": {
     "commander": "^2.9.0",
     "fs-promise": "^1.0.0",
+    "github": "^8.2.1",
     "inquirer-directory": "^2.1.0",
     "lodash": "^4.17.4",
     "plop": "^1.5.0"
