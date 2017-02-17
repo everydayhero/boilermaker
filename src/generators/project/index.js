@@ -67,7 +67,6 @@ export default plop => {
       default: false
     }],
     actions: data => ([
-      data.repo && (() => createGitHubRepo(data)),
       ...renderTemplateActions(data, [
         'package.json',
         'README.md',
@@ -85,7 +84,8 @@ export default plop => {
         'webpack.shared.config.js',
         '.env.default',
         '.gitignore'
-      ])
+      ]),
+      data.repo && (() => createGitHubRepo(data))
     ].filter(a => a))
   })
 }

@@ -2669,6 +2669,10 @@ signal-exit@^3.0.0:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.1.tgz#5a4c884992b63a7acd9badb7894c3ee9cfccad81"
 
+simple-git@^1.66.0:
+  version "1.66.0"
+  resolved "https://registry.yarnpkg.com/simple-git/-/simple-git-1.66.0.tgz#8f7157560e1bc7a5d5a6b98ef273a4a9d81826e2"
+
 slash@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/slash/-/slash-1.0.0.tgz#c41f2f6c39fc16d1cd17ad4b5d896114ae470d55"
