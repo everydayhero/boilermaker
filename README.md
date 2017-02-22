@@ -29,7 +29,7 @@ This will take you through a sequence of questions for customising your project,
 
 #### Repo Creation
 
-When creating a project, Boilermaker will offer to create a repository for you as well. In order to do this, a [GitHub Personal Access Token](https://github.com/settings/tokens/new) is required, with the `repo` scope enabled.
+When creating a project, Boilermaker will offer to create a repository for you as well. In order to do this, a [GitHub Personal Access Token](https://github.com/settings/tokens/new) is required, with the `repo` scope enabled. This token must be available under the `BRM_GITHUB_API_TOKEN` environment variable.
 
 ### Stateless Component
 
