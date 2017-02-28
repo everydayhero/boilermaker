@@ -4,6 +4,12 @@ import createGitHubRepo from '../../lib/github'
 const cwd = process.cwd()
 const templatesDir = '../templates'
 
+const inputExists = (value) => (
+  value && value.trim()
+    ? true
+    : 'Project name is required.'
+)
+
 export const renderTemplateActions = (data, templateFiles) => (
   templateFiles.map(templateFile => ({
     type: 'add',
@@ -20,12 +26,7 @@ export default plop => {
       type: 'input',
       name: 'name',
       message: 'What is your project called?',
-      validate: value => {
-        if (value && value.trim()) {
-          return true
-        }
-        return 'Project name is required.'
-      }
+      validate: inputExists
     }, {
       type: 'input',
       name: 'description',
@@ -65,6 +66,11 @@ export default plop => {
       name: 'repoPublic',
       message: 'Should this repo be public (MIT licensed if so)?',
       default: false
+    }, {
+      when: (answers) => answers.repo,
+      type: 'input',
+      name: 'repoOwner',
+      message: 'What org or user should this repo be created under (blank for self)?'
     }],
     actions: data => ([
       ...renderTemplateActions(data, [
