@@ -3,5 +3,5 @@ export const wrapper = {
 }
 
 export const title = {
-  background: 'white'
+  color: 'white'
 }
