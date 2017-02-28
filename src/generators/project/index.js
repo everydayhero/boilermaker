@@ -72,7 +72,6 @@ export default plop => {
         'README.md',
         'source/components/Document/index.js',
         'source/lib/createLocals/index.js',
-        'source/lib/css/index.js',
         'source/lib/renderDocument/index.js',
         'source/lib/traits/index.js',
         'source/lib/unlessFetched/index.js',
