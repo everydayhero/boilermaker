@@ -6,7 +6,10 @@
   "scripts": {
     "start": "brb serve --config='./webpack.shared.config'",
     "build": "brb build --config='./webpack.shared.config'",
-    "lint": "standard"
+    {{#if testing}}
+    "test": "brb test",
+    {{/if}}
+    "lint": "brb lint"
   },
   "author": "everydayhero",
   {{#if repoPublic}}
@@ -19,7 +22,7 @@
     {{#if prismic}}
     "prismic-utils": "^3.0.0",
     {{/if}}
-    "boiler-room-builder": "^1.4.0",
+    "boiler-room-builder": "^1.4.1",
     "boiler-room-runner": "^1.2.3",
     {{#if constructicon}}
     "constructicon": "^0.3.1",
@@ -38,13 +41,10 @@
     "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
-    "gh-pages": "^0.11.0",
     {{#if testing}}
-    "chai": "^3.0.0",
-    "enzyme": "^2.4.1",
-    "sinon": "^1.15.4",
+    "chai": "^3.5.0",
+    "enzyme": "^2.7.1",
     {{/if}}
-    "redux-logger": "^2.8.1",
-    "standard": "^8.5.0"
+    "redux-logger": "^2.8.1"
   }
 }
