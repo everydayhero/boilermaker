@@ -30,4 +30,3 @@ export default compose(
   connect(mapState),
   provideHooks(hooks)
 )(Root)
-

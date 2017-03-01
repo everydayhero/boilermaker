@@ -41,7 +41,7 @@
     "babel-preset-stage-0": "^6.16.0",
     "fs-extra": "^1.0.0",
     "node-plop": "^0.5.0",
-    "standard": "^8.5.0"
+    "standard": "^9.0.0"
   },
   "dependencies": {
     "commander": "^2.9.0",
