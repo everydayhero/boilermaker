@@ -48,6 +48,11 @@ export default plop => {
       default: false
     }, {
       type: 'confirm',
+      name: 'supporticon',
+      message: 'Do you use Supporticon?',
+      default: false
+    }, {
+      type: 'confirm',
       name: 'hui',
       message: 'Do you use HUI?',
       default: false
