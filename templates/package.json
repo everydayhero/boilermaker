@@ -11,7 +11,7 @@
     {{/if}}
     "lint": "brb lint"
   },
-  "author": "everydayhero",
+  "author": "Everydayhero",
   {{#if repoPublic}}
   "license": "MIT",
   {{/if}}
