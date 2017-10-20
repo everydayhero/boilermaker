@@ -16,9 +16,6 @@
   "license": "MIT",
   {{/if}}
   "dependencies": {
-    {{#if fetching}}
-    "axios": "^0.15.3",
-    {{/if}}
     {{#if prismic}}
     "prismic-utils": "^3.0.0",
     {{/if}}

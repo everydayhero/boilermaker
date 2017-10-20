@@ -38,11 +38,6 @@ export default plop => {
       default: false
     }, {
       type: 'confirm',
-      name: 'fetching',
-      message: 'Need a data fetching setup (Axios)?',
-      default: false
-    }, {
-      type: 'confirm',
       name: 'constructicon',
       message: 'Do you use Constructicon?',
       default: false
