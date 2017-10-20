@@ -48,11 +48,6 @@ export default plop => {
       default: false
     }, {
       type: 'confirm',
-      name: 'hui',
-      message: 'Do you use HUI?',
-      default: false
-    }, {
-      type: 'confirm',
       name: 'testing',
       message: 'Will you be writing tests in this project?',
       default: false
