@@ -5,12 +5,10 @@ import { compose } from 'redux'
 import Helmet from 'react-helmet'
 
 const hooks = {
-  fetch ({
+  fetch: ({
     dispatch,
     state
-  }) {
-    return Promise.all([])
-  }
+  }) => Promise.all([])
 }
 
 const mapState = () => ({})

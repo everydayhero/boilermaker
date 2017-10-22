@@ -11,16 +11,13 @@
     {{/if}}
     "lint": "brb lint"
   },
-  "author": "everydayhero",
+  "author": "Everydayhero",
   {{#if repoPublic}}
   "license": "MIT",
   {{/if}}
   "dependencies": {
-    {{#if fetching}}
-    "axios": "^0.15.3",
-    {{/if}}
     {{#if prismic}}
-    "prismic-utils": "^3.0.0",
+    "prismic-utils": "^4.1.0",
     {{/if}}
     "boiler-room-builder": "^1.4.1",
     "boiler-room-runner": "^1.2.3",
@@ -33,9 +30,6 @@
     "cxsync": "^1.0.9",
     "dotenv-webpack": "^1.4.1",
     "es6-promise": "^4.0.5",
-    {{#if hui}}
-    "hero-ui": "^5.5.1",
-    {{/if}}
     "minimal.css": "^1.0.1",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",

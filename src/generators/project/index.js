@@ -38,11 +38,6 @@ export default plop => {
       default: false
     }, {
       type: 'confirm',
-      name: 'fetching',
-      message: 'Need a data fetching setup (Axios)?',
-      default: false
-    }, {
-      type: 'confirm',
       name: 'constructicon',
       message: 'Do you use Constructicon?',
       default: false
@@ -50,11 +45,6 @@ export default plop => {
       type: 'confirm',
       name: 'supporticon',
       message: 'Do you use Supporticon?',
-      default: false
-    }, {
-      type: 'confirm',
-      name: 'hui',
-      message: 'Do you use HUI?',
       default: false
     }, {
       type: 'confirm',
