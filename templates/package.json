@@ -17,7 +17,7 @@
   {{/if}}
   "dependencies": {
     {{#if prismic}}
-    "prismic-utils": "^5.0.0",
+    "prismic-utils": "^6.1.1",
     {{/if}}
     "boiler-room-builder": "^1.4.1",
     "boiler-room-runner": "^1.2.3",
