@@ -1,0 +1,23 @@
+---
+steps:
+
+  - wait
+
+  - name: ":nodejs: Test It"
+    command: docker-compose run --rm build bin/test
+
+  - wait
+
+  - name: ":shipit: Ship It - Staging"
+    command: docker-compose run --rm build bin/deploy $ENVIRONMENT
+    branches: master staging/* release/*
+    env:
+      ENVIRONMENT: staging
+
+  - manual
+
+  - name: ":shipit: Ship It - Production"
+    command: docker-compose run --rm build bin/deploy $ENVIRONMENT
+    branches: master release/*
+    env:
+      ENVIRONMENT: prod

@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+set -eu pipefail
+
+yarn
+{{#if testing}}
+yarn test
+{{else}}
+yarn lint
+{{/if}}

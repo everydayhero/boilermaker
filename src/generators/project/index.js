@@ -1,4 +1,5 @@
 import path from 'path'
+import changeFileModes from '../../lib/changeFileModes'
 import createGitHubRepo from '../../lib/github'
 
 const cwd = process.cwd()
@@ -19,6 +20,8 @@ export const renderTemplateActions = (data, templateFiles) => (
   }))
 )
 
+const executableScripts = ['bin/deploy', 'bin/test']
+
 export default plop => {
   plop.setGenerator('project', {
     description: 'Create a new boiler room project',
@@ -35,17 +38,17 @@ export default plop => {
       type: 'confirm',
       name: 'prismic',
       message: 'Will this project use Prismic for a CMS?',
-      default: false
+      default: true
     }, {
       type: 'confirm',
       name: 'constructicon',
       message: 'Do you use Constructicon?',
-      default: false
+      default: true
     }, {
       type: 'confirm',
       name: 'supporticon',
       message: 'Do you use Supporticon?',
-      default: false
+      default: true
     }, {
       type: 'confirm',
       name: 'testing',
@@ -53,8 +56,14 @@ export default plop => {
       default: false
     }, {
       type: 'confirm',
+      name: 'deployment',
+      message: 'Will you be deploying this project using Buildkite?',
+      default: true
+    }, {
+      type: 'confirm',
       name: 'repo',
-      message: 'Need a repo made?'
+      message: 'Need a repo made?',
+      default: false
     }, {
       when: (answers) => answers.repo,
       type: 'confirm',
@@ -84,7 +93,15 @@ export default plop => {
         'webpack.shared.config.js',
         '.env.default',
         '.gitignore'
-      ]),
+      ].concat(data.deployment ? [
+        '.env.staging',
+        '.env.production',
+        '.buildkite/hooks/pre-command',
+        '.buildkite/pipeline.yml',
+        'docker-compose.yml',
+        ...executableScripts
+      ] : [])),
+      data.deployment && changeFileModes(executableScripts),
       data.repo && (() => createGitHubRepo(data))
     ].filter(a => a))
   })
