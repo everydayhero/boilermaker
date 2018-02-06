@@ -5,7 +5,15 @@
   "main": "source/client.js",
   "scripts": {
     "start": "brb serve --config='./webpack.shared.config'",
+    {{#if deployment}}
+    "build": "NODE_ENV=production brb build --base-path=$BASE_PATH --config='./webpack.shared.config'",
+    "build:staging": "ENV_FILE=.env.production BASE_PATH='/{{dashCase name}}/' yarn build",
+    "build:prod": "ENV_FILE=.env.production yarn run build",
+    "deploy:staging": "yarn build:staging && brb deploy --target='gh-pages'",
+    "deploy:prod": "yarn build:prod && brb deploy --target='s3' --bucket='blackbaud-sites.com' --prefix='{{dashCase name}}.blackbaud-sites.com'",
+    {{else}}
     "build": "brb build --config='./webpack.shared.config'",
+    {{/if}}
     {{#if testing}}
     "test": "brb test",
     {{/if}}

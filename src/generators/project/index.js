@@ -53,8 +53,14 @@ export default plop => {
       default: false
     }, {
       type: 'confirm',
+      name: 'deployment',
+      message: 'Will you be deploying this project using Buildkite?',
+      default: false
+    }, {
+      type: 'confirm',
       name: 'repo',
-      message: 'Need a repo made?'
+      message: 'Need a repo made?',
+      default: false
     }, {
       when: (answers) => answers.repo,
       type: 'confirm',
@@ -84,7 +90,15 @@ export default plop => {
         'webpack.shared.config.js',
         '.env.default',
         '.gitignore'
-      ]),
+      ].concat(data.deployment ? [
+        '.env.staging',
+        '.env.production',
+        '.buildkite/hooks/pre-command',
+        '.buildkite/pipeline.yml',
+        'bin/deploy',
+        'bin/test',
+        'docker-compose.yml'
+      ] : [])),
       data.repo && (() => createGitHubRepo(data))
     ].filter(a => a))
   })
