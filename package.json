@@ -1,6 +1,6 @@
 {
   "name": "brm",
-  "version": "1.9.0",
+  "version": "1.10.0",
   "description": "A generator for Boiler Room projects",
   "main": "index.js",
   "bin": {
