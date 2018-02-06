@@ -38,17 +38,17 @@ export default plop => {
       type: 'confirm',
       name: 'prismic',
       message: 'Will this project use Prismic for a CMS?',
-      default: false
+      default: true
     }, {
       type: 'confirm',
       name: 'constructicon',
       message: 'Do you use Constructicon?',
-      default: false
+      default: true
     }, {
       type: 'confirm',
       name: 'supporticon',
       message: 'Do you use Supporticon?',
-      default: false
+      default: true
     }, {
       type: 'confirm',
       name: 'testing',
@@ -58,7 +58,7 @@ export default plop => {
       type: 'confirm',
       name: 'deployment',
       message: 'Will you be deploying this project using Buildkite?',
-      default: false
+      default: true
     }, {
       type: 'confirm',
       name: 'repo',
