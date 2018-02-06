@@ -1,4 +1,5 @@
 import path from 'path'
+import changeFileModes from '../../lib/changeFileModes'
 import createGitHubRepo from '../../lib/github'
 
 const cwd = process.cwd()
@@ -18,6 +19,8 @@ export const renderTemplateActions = (data, templateFiles) => (
     abortOnFail: true
   }))
 )
+
+const executableScripts = ['bin/deploy', 'bin/test']
 
 export default plop => {
   plop.setGenerator('project', {
@@ -95,10 +98,10 @@ export default plop => {
         '.env.production',
         '.buildkite/hooks/pre-command',
         '.buildkite/pipeline.yml',
-        'bin/deploy',
-        'bin/test',
-        'docker-compose.yml'
+        'docker-compose.yml',
+        ...executableScripts
       ] : [])),
+      data.deployment && changeFileModes(executableScripts),
       data.repo && (() => createGitHubRepo(data))
     ].filter(a => a))
   })
