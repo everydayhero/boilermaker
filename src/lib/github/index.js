@@ -1,3 +1,4 @@
+import path from 'path'
 import changeCase from 'change-case'
 import GitHubApi from 'github'
 import gitCmd from 'simple-git/promise'
@@ -6,7 +7,7 @@ const initialCommit = ({
   name,
   owner
 }) => {
-  const git = gitCmd(process.cwd())
+  const git = gitCmd(path.join(process.cwd(), changeCase.paramCase(name)))
 
   return git.init()
     .then(() => git.addRemote('origin', `git@github.com:${owner}/${name}.git`))

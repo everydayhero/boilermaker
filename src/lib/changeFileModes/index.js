@@ -1,17 +1,16 @@
 import path from 'path'
+import changeCase from 'change-case'
 import { chmodSync, existsSync } from 'fs'
 
-const cwd = process.cwd()
-
 export default (files) => (
-  (data) => new Promise((resolve, reject) => {
+  ({ name }) => new Promise((resolve, reject) => {
     let count = 0
 
     const interval = setInterval(() => {
       count++
 
       const existingFiles = files
-        .map((file) => path.join(`${cwd}/`, file))
+        .map((file) => path.join(process.cwd(), changeCase.paramCase(name), file))
         .filter((file) => existsSync(file))
 
       if (existingFiles.length === files.length) {

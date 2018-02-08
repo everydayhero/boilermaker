@@ -21,11 +21,37 @@ yarn global add brm
 
 ## Usage
 
-Everything begins with running `brm create` from the root directory of your project.
+Everything begins with running `brm create`. When creating a project, a new directory will we created. For the other commands, run from the root of your existing project.
 
 ### Project
 
-This will take you through a sequence of questions for customising your project, and then build out a project based on your answers. Install your dependencies, run `yarn start`, and you're set.
+This will take you through a sequence of questions for customising your project, and then build out a project based on your answers. Install your dependencies, run `yarn start`, and you're set. For example:
+
+```
+brm create
+```
+
+```
+❯ project - Create a new boiler room project
+  Stateless - Create a new stateless view component
+  Action & Reducer - Create an Action & Reducer set
+```
+
+```
+? What is your project called? My New Project
+? Enter a short project description (optional): My description
+? Will this project use Prismic for a CMS? Yes
+? Do you use Constructicon? Yes
+? Do you use Supporticon? Yes
+? Will you be writing tests in this project? Yes
+? Will you be deploying this project using Buildkite? Yes
+? Need a repo made? No
+```
+
+```
+cd my-new-project && yarn
+yarn start
+```
 
 #### Repo Creation
 
