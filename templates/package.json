@@ -24,7 +24,7 @@
   "license": "MIT",
   {{/if}}
   "dependencies": {
-    "boiler-room-builder": "^1.4.1",
+    "boiler-room-builder": "^2.0.0",
     "boiler-room-runner": "^1.4.3",
     {{#if constructicon}}
     "constructicon": "^1.2.0",

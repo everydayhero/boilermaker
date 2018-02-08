@@ -1,8 +1,8 @@
 import path from 'path'
+import changeCase from 'change-case'
 import changeFileModes from '../../lib/changeFileModes'
 import createGitHubRepo from '../../lib/github'
 
-const cwd = process.cwd()
 const templatesDir = '../templates'
 
 const inputExists = (value) => (
@@ -11,10 +11,10 @@ const inputExists = (value) => (
     : 'Project name is required.'
 )
 
-export const renderTemplateActions = (data, templateFiles) => (
+export const renderTemplateActions = ({ name }, templateFiles) => (
   templateFiles.map(templateFile => ({
     type: 'add',
-    path: path.join(`${cwd}/`, templateFile),
+    path: path.join(process.cwd(), changeCase.paramCase(name), templateFile),
     templateFile: path.join(templatesDir, templateFile[0] === '.' ? templateFile.substr(1) : templateFile),
     abortOnFail: true
   }))
