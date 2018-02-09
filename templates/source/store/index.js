@@ -6,13 +6,11 @@ import {
 import thunk from 'redux-thunk'
 import createLogger from 'redux-logger'
 
-// @reducers
-
 const middleware = process.env.NODE_ENV === 'production'
   ? [thunk]
   : [thunk, createLogger()]
 
-export const configureStore = (initialState = {}) => (
+export default (initialState = {}) => (
   createStore(
     combineReducers({
       blank: (state = {}) => state // Remove this if you have your own reducers
@@ -21,5 +19,3 @@ export const configureStore = (initialState = {}) => (
     applyMiddleware(...middleware)
   )
 )
-
-export default configureStore({})
