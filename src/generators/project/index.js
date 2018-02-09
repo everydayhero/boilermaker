@@ -80,11 +80,6 @@ export default plop => {
       ...renderTemplateActions(data, [
         'package.json',
         'README.md',
-        'source/components/Document/index.js',
-        'source/lib/createLocals/index.js',
-        'source/lib/renderDocument/index.js',
-        'source/lib/traits/index.js',
-        'source/lib/unlessFetched/index.js',
         'source/routes/Home/index.js',
         'source/routes/index.js',
         'source/client.js',
@@ -93,7 +88,8 @@ export default plop => {
         'webpack.shared.config.js',
         '.env.default',
         '.gitignore'
-      ].concat(data.deployment ? [
+      ].concat(data.constructicon ? ['source/lib/traits/index.js'] : [])
+      .concat(data.deployment ? [
         '.env.staging',
         '.env.production',
         '.buildkite/hooks/pre-command',

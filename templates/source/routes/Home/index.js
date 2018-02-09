@@ -1,8 +1,18 @@
 import React from 'react'
-import { provideHooks } from 'redial'
-import { connect } from 'react-redux'
 import { compose } from 'redux'
+import { connect } from 'react-redux'
+import { provideHooks } from 'redial'
+
 import Helmet from 'react-helmet'
+
+const Root = () => {
+  return (
+    <div>
+      <Helmet title={'My App'} />
+      <h1>Hello, world!</h1>
+    </div>
+  )
+}
 
 const hooks = {
   fetch: ({
@@ -11,20 +21,9 @@ const hooks = {
   }) => Promise.all([])
 }
 
-const mapState = () => ({})
-
-const Root = () => {
-  return (
-    <div>
-      <Helmet
-        title={'My App'}
-      />
-      <h1>Hello, world!</h1>
-    </div>
-  )
-}
+const mapStateToProps = () => ({})
 
 export default compose(
-  connect(mapState),
+  connect(mapStateToProps),
   provideHooks(hooks)
 )(Root)

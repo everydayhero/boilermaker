@@ -1,13 +1,13 @@
 # {{titleCase name}}
 
-**{{description}}**
+{{#if description}}
+{{description}}
 
---
+{{/if}}
+---
 
 <!-- Site links
-
 [Staging](https://www.example.com) | [Production](https://www.example.com)
-
 -->
 
 ## Usage
@@ -29,3 +29,19 @@ yarn start
 ```
 
 This will run a local development server at [http://localhost:8080](http://localhost:8080).
+
+{{#if deployment}}
+### Deployment
+
+```shell
+yarn deploy:staging
+```
+
+This will build and deploy the site to Github Pages
+
+```shell
+yarn deploy:prod
+```
+
+This will build and deploy the site to production
+{{/if}}
