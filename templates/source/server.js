@@ -2,10 +2,9 @@ import { createServer } from 'boiler-room-runner'
 {{#if constructicon}}
 import renderDocument from 'constructicon/lib/renderDocument'
 {{/if}}
-import configureStore from './store'
+import createStore from './store'
 import routes from './routes'
 
-const store = configureStore()
 const basepath = process.env.BASE_PATH
 
 export default ({ assets }) => {
@@ -15,7 +14,7 @@ export default ({ assets }) => {
     renderDocument,
     {{/if}}
     routes,
-    store,
+    createStore,
     assets
   })
 

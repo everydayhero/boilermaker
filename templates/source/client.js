@@ -2,7 +2,7 @@ import React from 'react'
 import routes from './routes'
 import { createClient } from 'boiler-room-runner'
 import { render } from 'react-dom'
-import configureStore from './store'
+import createStore from './store'
 import 'minimal.css'
 
 if (typeof Promise === 'undefined') {
@@ -11,7 +11,7 @@ if (typeof Promise === 'undefined') {
 
 const basepath = process.env.BASE_PATH
 const initialState = JSON.parse(document.getElementById('initial-state').innerHTML)
-const store = configureStore(initialState)
+const store = createStore(initialState)
 const App = createClient({ basepath, routes, store })
 
 render(<App />, document.getElementById('mount'))
