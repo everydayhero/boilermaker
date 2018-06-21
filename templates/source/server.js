@@ -24,3 +24,7 @@ export default ({ assets }) => {
 
   return app
 }
+
+{{#if constructicon}}
+export { renderDocument }
+{{/if}}
