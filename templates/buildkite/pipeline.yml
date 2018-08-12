@@ -9,7 +9,7 @@ steps:
   - wait
 
   - name: ":shipit: Ship It - Staging"
-    command: docker-compose run --rm build bin/deploy $ENVIRONMENT
+    command: docker-compose run --rm build bin/deploy $$ENVIRONMENT
     branches: master staging/* release/*
     env:
       ENVIRONMENT: staging
@@ -17,7 +17,7 @@ steps:
   - manual
 
   - name: ":shipit: Ship It - Production"
-    command: docker-compose run --rm build bin/deploy $ENVIRONMENT
+    command: docker-compose run --rm build bin/deploy $$ENVIRONMENT
     branches: master release/*
     env:
       ENVIRONMENT: prod
